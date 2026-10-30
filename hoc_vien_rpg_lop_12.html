@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Học Viện RPG — Chinh Phục Lớp 12</title>
+<style>
+:root{--bg:#0b1020;--panel:#151d34;--panel2:#1b2744;--line:#2b3b61;--text:#edf3ff;--muted:#9eafd0;--gold:#ffd166;--cyan:#66e3e8;--green:#6ee7a8;--red:#ff7b8b;--purple:#b69cff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#1b2c52 0,transparent 42%),radial-gradient(ellipse at 90% 20%,#2b1d51 0,transparent 35%),var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;min-height:100vh}
+button{font:inherit;cursor:pointer;border:0;color:inherit}.wrap{max-width:1120px;margin:auto;padding:24px 18px 50px}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px}.brand{display:flex;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,#6658d9,#23b7c5);display:grid;place-items:center;font-size:25px;box-shadow:0 8px 30px #3d62c655}.brand h1{font-size:20px;margin:0;letter-spacing:.3px}.brand p{margin:2px 0 0;color:var(--muted);font-size:12px}.season{border:1px solid #42618c;background:#162641;padding:8px 12px;border-radius:99px;color:#b9d9ff;font-size:12px;white-space:nowrap}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;margin-bottom:16px}.panel{background:linear-gradient(145deg,#182440ee,#111a30f2);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 16px 40px #0003}.profile{display:flex;gap:17px;align-items:center}.avatar{width:88px;height:88px;border-radius:22px;background:linear-gradient(145deg,#273f71,#20284d);display:grid;place-items:center;font-size:48px;border:1px solid #526ba0;flex:none}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--cyan);font-weight:800}.name{font-size:22px;font-weight:800;margin:3px 0}.level{color:var(--gold);font-weight:800}.muted{color:var(--muted)}.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.stat{background:#0e172b;border:1px solid #293b60;border-radius:11px;padding:7px 11px;font-size:13px}.stat b{color:var(--gold)}.progressrow{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin:14px 0 6px}.bar{height:10px;background:#0a1224;border-radius:20px;overflow:hidden;border:1px solid #263758}.fill{height:100%;width:0;background:linear-gradient(90deg,#4ed5dc,#7be6a7);border-radius:20px;transition:width .3s}
+.daily h2,.sectiontitle{font-size:17px;margin:0 0 12px}.mission{display:flex;gap:12px;align-items:center;padding:12px;background:#101a30;border:1px solid #2b3b61;border-radius:13px;margin-top:10px}.mission .ico{font-size:25px}.mission small{display:block;color:var(--muted)}.reward{margin-left:auto;color:var(--gold);font-weight:800;white-space:nowrap}
+.grid{display:grid;grid-template-columns:1fr 1.15fr;gap:16px}.mapgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.realm{background:#101a30;border:1px solid #2a3b60;border-radius:14px;padding:13px;display:flex;gap:10px;align-items:center;cursor:pointer;transition:.2s;text-align:left}.realm:hover,.realm.active{border-color:var(--cyan);background:#162746;transform:translateY(-1px)}.realm .emoji{font-size:27px}.realm b{display:block}.realm small{color:var(--muted)}.realm.active small{color:var(--cyan)}
+.questhead{display:flex;justify-content:space-between;gap:10px;align-items:center}.pill{border-radius:99px;padding:5px 10px;font-size:11px;font-weight:800;background:#183e4b;color:#7ceaf0;border:1px solid #286373}.question{font-size:18px;font-weight:750;margin:17px 0 14px}.answers{display:grid;gap:9px}.answer{width:100%;padding:12px 14px;border:1px solid #304266;background:#111c33;border-radius:12px;text-align:left;display:flex;gap:10px;align-items:center;transition:.15s}.answer:hover:not(:disabled){border-color:#72dce5;background:#172b49}.answer .letter{width:27px;height:27px;border-radius:8px;background:#26385c;display:grid;place-items:center;font-weight:800;color:#c9d9ff;flex:none}.answer.selected{border-color:var(--cyan);background:#163447}.answer.correct{border-color:var(--green);background:#143a32}.answer.wrong{border-color:var(--red);background:#42232f}.answer:disabled{cursor:default}.feedback{margin-top:13px;padding:13px;border-radius:12px;background:#101a30;border:1px solid #304266}.feedback.good{border-color:#397b60}.feedback.bad{border-color:#8b4655}.feedback strong{display:block;margin-bottom:3px}.actions{display:flex;gap:9px;margin-top:14px;flex-wrap:wrap}.primary,.secondary{padding:11px 16px;border-radius:11px;font-weight:800}.primary{background:linear-gradient(135deg,#31c6c9,#4b91db);color:#061426;box-shadow:0 7px 20px #28aeb044}.secondary{background:#202e4c;border:1px solid #3a4d73;color:#dce8ff}.primary:disabled{opacity:.4;cursor:not-allowed}
+.boss{margin-top:16px;display:flex;align-items:center;gap:16px}.bossart{font-size:48px;width:76px;height:76px;border-radius:18px;background:#2b1e3c;display:grid;place-items:center}.bossinfo{flex:1}.bossbar{height:9px;background:#090f1d;border-radius:10px;overflow:hidden;margin-top:8px}.bossfill{height:100%;width:100%;background:linear-gradient(90deg,#ff647c,#bd6cff);transition:width .4s}
+.footer{text-align:center;color:#7183a8;font-size:12px;margin-top:22px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#203456;border:1px solid #5576a9;padding:11px 17px;border-radius:12px;box-shadow:0 10px 35px #0008;opacity:0;pointer-events:none;transition:.25s}.toast.show{opacity:1}
+@media(max-width:780px){.hero,.grid{grid-template-columns:1fr}.wrap{padding:16px 12px 35px}.panel{padding:16px}.brand h1{font-size:17px}.season{font-size:10px}.question{font-size:16px}}
+@media(max-width:430px){.avatar{width:68px;height:68px;font-size:38px}.mapgrid{grid-template-columns:1fr 1fr}.realm{padding:10px}.realm .emoji{font-size:23px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><div class="brand"><div class="logo">⚔️</div><div><h1>HỌC VIỆN RPG</h1><p>Hành trình chinh phục lớp 12</p></div></div><div class="season">✦ MÙA GIẢI · 8 TUẦN KÌ 1</div></header>
+<section class="hero">
+ <div class="panel">
+  <div class="profile"><div class="avatar">🧙‍♂️</div><div><div class="eyebrow">Nhân vật của bạn</div><div class="name">Nhà thám hiểm tri thức</div><div class="level" id="level">Cấp độ 1 · Tân binh</div></div></div>
+  <div class="progressrow"><span>EXP thăng cấp</span><b id="expText">0 / 100</b></div><div class="bar"><div class="fill" id="expBar"></div></div>
+  <div class="stats"><div class="stat">❤️ HP <b id="hp">100/100</b></div><div class="stat">🪙 Xu <b id="coins">0</b></div><div class="stat">⭐ EXP <b id="totalExp">0</b></div></div>
+ </div>
+ <div class="panel daily"><h2>📜 Nhiệm vụ hôm nay</h2>
+  <div class="mission"><div class="ico">📚</div><div><b>Khởi động trí tuệ</b><small>Trả lời đúng 3 câu bất kỳ</small></div><div class="reward" id="missionProgress">0/3</div></div>
+  <div class="mission"><div class="ico">🛡️</div><div><b>Thử thách liên môn</b><small>Chơi ít nhất 2 môn học</small></div><div class="reward" id="multiProgress">0/2</div></div>
+  <div class="mission"><div class="ico">🎁</div><div><b>Thưởng nhiệm vụ</b><small id="missionStatus">Hoàn thành để nhận 50 xu</small></div><div class="reward" id="missionReward">🔒</div></div>
+ </div>
+</section>
+<section class="grid">
+ <div class="panel"><h2 class="sectiontitle">🗺️ Bản đồ thế giới</h2><p class="muted" style="font-size:12px;margin-top:-6px">Chọn vùng đất để luyện tập. Câu hỏi sẽ luân phiên theo môn.</p>
+  <div class="mapgrid" id="realms">
+   <button class="realm active" data-subject="history"><span class="emoji">🏰</span><span><b>Lịch sử</b><small>Vương quốc thời đại</small></span></button>
+   <button class="realm" data-subject="geography"><span class="emoji">🌏</span><span><b>Địa lí</b><small>Lục địa khám phá</small></span></button>
+   <button class="realm" data-subject="math"><span class="emoji">🔮</span><span><b>Toán học</b><small>Tháp công thức</small></span></button>
+   <button class="realm" data-subject="literature"><span class="emoji">📖</span><span><b>Ngữ văn</b><small>Khu rừng ngôn từ</small></span></button>
+  </div>
+  <div class="boss"><div class="bossart">🐉</div><div class="bossinfo"><b>Boss: Rồng Gác Cổng</b><div class="muted" style="font-size:12px">Vượt qua 5 câu để thách đấu Boss.</div><div class="bossbar"><div class="bossfill" id="bossFill"></div></div><small class="muted" id="bossText">HP Boss: 100/100</small></div></div>
+ </div>
+ <div class="panel">
+  <div class="questhead"><h2 class="sectiontitle" style="margin:0">⚔️ Nhiệm vụ đang thực hiện</h2><span class="pill" id="subjectPill">LỊCH SỬ 12</span></div>
+  <div class="question" id="question">ASEAN được thành lập vào năm 1967 tại quốc gia nào?</div>
+  <div class="answers" id="answers"></div>
+  <div id="feedback"></div>
+  <div class="actions"><button class="primary" id="nextBtn" disabled>Trả lời để nhận thưởng</button><button class="secondary" id="hintBtn">💡 Gợi ý</button></div>
+ </div>
+</section>
+<div class="footer">Học vui mỗi ngày · Nội dung luyện tập cần đối chiếu phạm vi ôn tập của trường bạn.</div>
+</div><div class="toast" id="toast"></div>
+<script>
+const bank={
+ history:[
+ {q:"ASEAN được thành lập vào năm 1967 tại quốc gia nào?",a:["Indonesia","Thái Lan","Singapore","Malaysia"],c:1,e:"ASEAN được thành lập ngày 8/8/1967 tại Bangkok (Thái Lan), với 5 nước sáng lập."},
+ {q:"Năm quốc gia sáng lập ASEAN gồm những nước nào?",a:["Việt Nam, Lào, Campuchia, Thái Lan, Myanmar","Indonesia, Malaysia, Philippines, Singapore, Thái Lan","Trung Quốc, Nhật Bản, Hàn Quốc, Thái Lan, Singapore","Indonesia, Việt Nam, Malaysia, Brunei, Philippines"],c:1,e:"Năm nước sáng lập là Indonesia, Malaysia, Philippines, Singapore và Thái Lan."},
+ {q:"Chiến tranh lạnh chấm dứt gắn liền với sự kiện nào sau đây?",a:["Chiến tranh thế giới thứ hai kết thúc","Trật tự hai cực I-an-ta tan rã","ASEAN được thành lập","Liên hợp quốc ra đời"],c:1,e:"Chiến tranh lạnh kết thúc, trật tự hai cực I-an-ta từng bước tan rã vào cuối thế kỉ XX."},
+ {q:"Liên Xô chính thức tan rã vào năm nào?",a:["1989","1990","1991","1995"],c:2,e:"Liên bang Xô viết tan rã vào tháng 12/1991."},
+ {q:"ASEAN hướng tới xây dựng một cộng đồng dựa trên bao nhiêu trụ cột?",a:["Hai","Ba","Bốn","Năm"],c:1,e:"Cộng đồng ASEAN có ba trụ cột: Chính trị - An ninh, Kinh tế, Văn hóa - Xã hội."}
+ ],
+ geography:[
+ {q:"Đặc điểm nổi bật của mạng lưới sông ngòi nước ta là gì?",a:["Thưa thớt, ít sông","Dày đặc, phân bố rộng khắp","Chỉ tập trung ở miền núi","Chủ yếu là sông ngắn ở miền Nam"],c:1,e:"Nước ta có mạng lưới sông ngòi dày đặc, phân bố rộng khắp; nhiều sông nhỏ."},
+ {q:"Nguyên nhân chủ yếu làm cho thiên nhiên nước ta mang tính chất nhiệt đới ẩm gió mùa là gì?",a:["Vị trí trong vùng nội chí tuyến và hoạt động gió mùa","Địa hình chủ yếu là đồi núi","Có đường bờ biển dài","Nằm gần các mỏ khoáng sản"],c:0,e:"Vị trí địa lí trong vùng nội chí tuyến cùng tác động của các khối khí và gió mùa tạo nên tính chất nhiệt đới ẩm gió mùa."},
+ {q:"Loại đất chiếm diện tích lớn ở vùng đồi núi nước ta là gì?",a:["Đất phù sa","Đất feralit","Đất mặn","Đất phèn"],c:1,e:"Đất feralit là nhóm đất phổ biến ở vùng đồi núi nước ta."},
+ {q:"Biểu hiện nào sau đây thể hiện tính chất nhiệt đới của khí hậu nước ta?",a:["Nhiệt độ trung bình năm cao","Mùa đông lạnh kéo dài trên cả nước","Mưa chỉ tập trung vào mùa đông","Biên độ nhiệt năm luôn rất lớn"],c:0,e:"Nhiệt độ trung bình năm cao là một biểu hiện quan trọng của tính chất nhiệt đới."},
+ {q:"Gió mùa mùa đông ở miền Bắc nước ta có hướng chủ yếu là gì?",a:["Tây Nam","Đông Bắc","Đông Nam","Tây Bắc"],c:1,e:"Gió mùa mùa đông ở miền Bắc chủ yếu có hướng Đông Bắc."}
+ ],
+ math:[
+ {q:"Hàm số y = x³ − 3x có đạo hàm là biểu thức nào?",a:["3x² − 3","x² − 3","3x² + 3","x³ − 3"],c:0,e:"Dùng quy tắc đạo hàm: (x³)' = 3x² và (−3x)' = −3."},
+ {q:"Nếu f'(x) > 0 trên khoảng (a;b), hàm số f đồng biến hay nghịch biến trên khoảng đó?",a:["Nghịch biến","Đồng biến","Không đổi","Không đủ dữ kiện"],c:1,e:"Đạo hàm dương trên một khoảng thì hàm số đồng biến trên khoảng đó."},
+ {q:"Đồ thị hàm số y = 1/(x−2) có tiệm cận đứng là đường thẳng nào?",a:["x = 0","x = 1","x = 2","y = 2"],c:2,e:"Mẫu số bằng 0 tại x = 2, tử số khác 0 nên x = 2 là tiệm cận đứng."},
+ {q:"Giá trị của đạo hàm (sin x)' là gì?",a:["cos x","−cos x","sin x","−sin x"],c:0,e:"Công thức cơ bản: (sin x)' = cos x."},
+ {q:"Hàm số bậc ba có thể có tối đa bao nhiêu điểm cực trị?",a:["0","1","2","3"],c:2,e:"Đạo hàm là tam thức bậc hai nên có tối đa hai nghiệm phân biệt, do đó tối đa hai điểm cực trị."}
+ ],
+ literature:[
+ {q:"Trong nghị luận văn học, luận điểm là gì?",a:["Ý kiến chính được triển khai để làm sáng tỏ vấn đề","Một câu trích dẫn bất kỳ","Tên tác giả và tác phẩm","Phần kết thúc bài văn"],c:0,e:"Luận điểm là những ý kiến, quan điểm chính mà người viết dùng để triển khai và làm sáng tỏ luận đề."},
+ {q:"Biện pháp tu từ nhân hóa có tác dụng cơ bản nào?",a:["Làm sự vật trở nên gần gũi, sinh động như con người","Chỉ dùng để so sánh hai sự vật","Làm câu văn có vần","Thay thế hoàn toàn phép ẩn dụ"],c:0,e:"Nhân hóa gán đặc điểm, hoạt động hoặc cách gọi của con người cho sự vật, giúp hình ảnh sinh động, gần gũi."},
+ {q:"Trong bài thơ, nhân vật trữ tình là gì?",a:["Người trực tiếp bộc lộ cảm xúc, suy nghĩ trong tác phẩm","Tác giả ngoài đời trong mọi trường hợp","Nhân vật phản diện","Người đọc bài thơ"],c:0,e:"Nhân vật trữ tình là chủ thể trữ tình, người trực tiếp bộc lộ cảm xúc và suy tư trong bài thơ."},
+ {q:"Thao tác lập luận phân tích chủ yếu nhằm mục đích gì?",a:["Chia đối tượng thành các mặt, phương diện để xem xét","Kể lại toàn bộ sự việc","Bác bỏ mọi ý kiến khác","Chỉ nêu cảm xúc cá nhân"],c:0,e:"Phân tích chia đối tượng thành các yếu tố, phương diện để làm rõ bản chất và mối quan hệ của chúng."},
+ {q:"Thông điệp của tác phẩm văn học là gì?",a:["Điều tác giả gửi gắm, gợi ra từ tác phẩm","Số câu thơ trong văn bản","Tên thể thơ","Tiểu sử đầy đủ của tác giả"],c:0,e:"Thông điệp là ý nghĩa, bài học hoặc suy ngẫm mà tác phẩm gửi đến người đọc."}
+ ]
+};
+const names={history:"LỊCH SỬ 12",geography:"ĐỊA LÍ 12",math:"TOÁN 12",literature:"NGỮ VĂN 12"};
+let subject="history",idx=0,level=1,exp=0,totalExp=0,coins=0,hp=100,correct=0,answered=0,streak=0,used={},answeredNow=false,bossHP=100,bossUnlocked=false,subjectsDone=new Set();
+const $=id=>document.getElementById(id);
+function toast(t){$("toast").textContent=t;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),1900)}
+function update(){
+ $("level").textContent=`Cấp độ ${level} · ${level===1?"Tân binh":level<5?"Nhà thám hiểm":"Bậc thầy tri thức"}`;
+ $("expText").textContent=`${exp} / ${level*100}`;$("expBar").style.width=(exp/(level*100)*100)+"%";
+ $("coins").textContent=coins;$("totalExp").textContent=totalExp;$("hp").textContent=hp+"/100";
+ $("missionProgress").textContent=Math.min(correct,3)+"/3";$("multiProgress").textContent=subjectsDone.size+"/2";
+ if(correct>=3&&subjectsDone.size>=2){$("missionStatus").textContent="Đã hoàn thành!";$("missionReward").textContent="Đã nhận";if(!window.missionPaid){coins+=50;window.missionPaid=true;$("coins").textContent=coins;toast("🎁 Hoàn thành nhiệm vụ: +50 xu!");}}
+ $("bossFill").style.width=bossHP+"%";$("bossText").textContent=`HP Boss: ${bossHP}/100`;
+}
+function loadQuestion(){
+ const arr=bank[subject];let n=used[subject]||0;if(n>=arr.length){used[subject]=0;n=0;}idx=n;used[subject]=n+1;answeredNow=false;
+ const q=arr[idx];$("subjectPill").textContent=names[subject];$("question").textContent=q.q;$("feedback").innerHTML="";
+ $("answers").innerHTML=q.a.map((a,i)=>`<button class="answer" data-i="${i}"><span class="letter">${"ABCD"[i]}</span><span>${a}</span></button>`).join("");
+ [...$("answers").querySelectorAll(".answer")].forEach(b=>b.onclick=()=>choose(+b.dataset.i));
+ $("nextBtn").disabled=true;$("nextBtn").textContent="Trả lời để nhận thưởng";$("hintBtn").disabled=false;
+}
+function choose(i){
+ if(answeredNow)return;answeredNow=true;answered++;subjectsDone.add(subject);const q=bank[subject][idx],ok=i===q.c;
+ [...$("answers").querySelectorAll(".answer")].forEach((b,j)=>{b.disabled=true;if(j===q.c)b.classList.add("correct");if(j===i&&!ok)b.classList.add("wrong")});
+ if(ok){correct++;streak++;exp+=20;totalExp+=20;coins+=10;hp=Math.min(100,hp+3);bossHP=Math.max(0,bossHP-20);$("feedback").innerHTML=`<div class="feedback good"><strong>✨ Chính xác! +20 EXP · +10 xu</strong>${q.e}</div>`;toast("⚔️ Hạ gục quái kiến thức! +10 xu");}
+ else{streak=0;hp=Math.max(0,hp-8);exp+=5;totalExp+=5;$("feedback").innerHTML=`<div class="feedback bad"><strong>💥 Chưa chính xác! +5 EXP an ủi</strong>Đáp án đúng: <b>${"ABCD"[q.c]}. ${q.a[q.c]}</b><br>${q.e}</div>`;}
+ if(exp>=level*100){exp-=level*100;level++;coins+=25;toast(`🎉 LÊN CẤP ${level}! Nhận thêm 25 xu`);}
+ $("nextBtn").disabled=false;$("nextBtn").textContent= bossHP===0?"🐉 Đánh bại Boss!":"Câu tiếp theo →";update();
+}
+$("nextBtn").onclick=()=>{if(!answeredNow)return;if(bossHP===0){bossHP=100;coins+=100;exp+=50;totalExp+=50;if(exp>=level*100){exp-=level*100;level++;}toast("🐉 Boss bị đánh bại! +100 xu, +50 EXP");update();}loadQuestion();};
+$("hintBtn").onclick=()=>{if(answeredNow)return;const q=bank[subject][idx];toast("💡 Gợi ý: "+q.e.split(".")[0]+".");};
+document.querySelectorAll(".realm").forEach(b=>b.onclick=()=>{document.querySelectorAll(".realm").forEach(x=>x.classList.remove("active"));b.classList.add("active");subject=b.dataset.subject;loadQuestion();toast("Đã dịch chuyển đến vùng "+names[subject]);});
+update();loadQuestion();
+</script>
+</body></html>
